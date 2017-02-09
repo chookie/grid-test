@@ -13,12 +13,16 @@ export function loadData() {
     // const table = [{id: 0,stock: "Stock 1"},{id: 1,stock: "Stock 2"}];
     // dispatch({ type: actionType.TABLE_SUCCESS , table });
     axios.get("http://localhost:3004/portfolios")
-    .then(handleErrors)
-    .then(response => {
-      dispatch({ type: actionType.TABLE_SUCCESS , table:response.data })
-    })
-    .catch(error => {
-      console.log('error',error);
-      dispatch({ type: actionType.TABLE_FAILURE, error })});
+      .then(handleErrors)
+      .then(response => {
+        dispatch({ type: actionType.TABLE_SUCCESS, table: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: actionType.TABLE_FAILURE, error });
+      });
   };
+}
+
+export function setNumberOfRecords(records) {
+  return { type: actionType.SET_NUMBER_RECORDS, table: records };
 }

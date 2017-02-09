@@ -5,7 +5,7 @@ const casual = require('casual');
 module.exports = function(req, res) {
   var data = { portfolios: [] }
   // Create 1000 users
-  for (var i = 0; i < 1000; i++) {
+  for (var i = 0; i < 10000; i++) {
     data.portfolios.push(
       { 
         id: i, 

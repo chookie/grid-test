@@ -5,15 +5,12 @@ const initialState = {};
 function tableReducer (state = initialState, action) {
   switch (action.type) {
     case actionType.TABLE_SUCCESS:
-    console.log('acion',action);
-      var l = Object.assign({data: action.table}, state, {showErrorMessage: false});
-      console.log('TABLE_SUCCESS',l);
-      return l;
+      return Object.assign({data: action.table}, state, {showErrorMessage: false});
     case actionType.TABLE_FAILURE:
-      var e = Object.assign({data: action.table}, state, {showErrorMessage: true});
-      console.log('TABLE_FAILURE',e);
-      return e;
-      // return Object.assign({}, state, {showErrorMessage: true});
+      return Object.assign({data: action.table}, state, {showErrorMessage: true});
+    case actionType.SET_NUMBER_RECORDS:
+      // return Object.assign(state, {records: action.table}, {showErrorMessage: false});
+      return {...state, records: action.table, showErrorMessage: false};
     default:
       return state;
   }
